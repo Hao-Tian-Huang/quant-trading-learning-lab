@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用可調整的合成資料圖表認識移動平均線交叉策略。">
+  <meta name="theme-color" content="#0b0f14">
+  <title>移動平均線交叉策略 | 量化交易入門實驗室</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="量化交易入門實驗室首頁"><span class="brand-mark" aria-hidden="true">Q</span><span><strong>量化交易入門實驗室</strong><small>QUANT TRADING LEARNING LAB</small></span></a>
+    <nav class="main-nav" aria-label="主要導覽"><a href="../index.html">首頁</a><a class="active" href="moving-average-crossover.html" aria-current="page">策略示範</a><a href="backtesting-process.html">回測流程</a></nav>
+    <a class="header-link" href="backtesting-process.html#checklist">研究檢查表 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="shell article-layout">
+    <div class="article-kicker"><a href="../index.html">首頁</a><span>/</span><span>策略示範</span><span class="tag">STRATEGY 001</span></div>
+    <section class="article-hero">
+      <p class="eyebrow"><span class="live-dot"></span> TREND FOLLOWING · TEACHING EXAMPLE</p>
+      <h1>移動平均線<br><em>交叉策略</em></h1>
+      <p class="article-lede">把兩條不同速度的平均線，轉成一條簡單的趨勢規則。它適合用來學習策略如何形式化，不代表這是有效或適合實際交易的策略。</p>
+      <div class="article-meta"><span>約 5 分鐘</span><span>／</span><span>含互動示意</span><span>／</span><span>假設資料</span></div>
+    </section>
+
+    <section class="content-section article-section" id="question">
+      <div class="section-label"><span>01</span><span>THE QUESTION</span></div>
+      <div class="section-body"><h2>想解決的問題</h2><p>我們想用一個明確、能由程式判斷的條件，描述價格趨勢何時轉強或轉弱。移動平均線（moving average, MA）把最近一段時間的價格取平均，用來平滑短期起伏。</p><p>「短期均線向上穿過長期均線」常被稱作黃金交叉；向下穿過則常稱死亡交叉。這些名稱描述的是訊號，不代表訊號之後一定上漲或下跌。</p></div>
+    </section>
+
+    <section class="content-section article-section" id="concept">
+      <div class="section-label"><span>02</span><span>THE RULE</span></div>
+      <div class="section-body"><h2>核心概念</h2><p>簡單移動平均線會計算最近 <code>n</code> 個觀察值的算術平均：</p><div class="formula-box"><span class="formula-label">SIMPLE MOVING AVERAGE</span><span class="formula">SMA<sub>t</sub>(n) = <span class="fraction"><span>1</span><span>n</span></span> ∑<sub>i=0</sub><sup>n−1</sup> P<sub>t−i</sub></span></div>
+        <div class="rule-grid"><div class="rule-card"><span class="rule-symbol green-symbol">↑</span><strong>短期均線在長期均線上方</strong><p>依照這個教學策略，產生「持有」訊號。</p></div><div class="rule-card"><span class="rule-symbol red-symbol">↓</span><strong>短期均線在長期均線下方</strong><p>依照這個教學策略，產生「空手」訊號。</p></div></div>
+        <p class="small-note">「持有／空手」只是這個示意策略的狀態定義。不同的實際策略可能有不同的部位、賣出與風險管理規則。</p>
+      </div>
+    </section>
+
+    <section class="content-section article-section" id="demo">
+      <div class="section-label"><span>03</span><span>INTERACTIVE DEMO</span></div>
+      <div class="section-body"><div class="section-title-row"><div><h2>調整均線，觀察訊號</h2><p>選擇不同期間，看看均線平滑程度和交叉位置如何改變。</p></div><span class="demo-badge">SYNTHETIC DATA</span></div>
+        <div class="chart-panel" data-sma-demo>
+          <div class="chart-toolbar"><div class="chart-legend"><span><i class="legend-dot price-dot"></i>價格</span><span><i class="legend-dot fast-dot"></i>短期 SMA</span><span><i class="legend-dot slow-dot"></i>長期 SMA</span></div><div class="chart-controls"><label>短期 <input id="short-window" type="number" min="2" max="15" value="5" inputmode="numeric"></label><label>長期 <input id="long-window" type="number" min="4" max="24" value="12" inputmode="numeric"></label></div></div>
+          <div class="chart-wrap"><svg id="sma-chart" role="img" aria-labelledby="chart-title chart-description" viewBox="0 0 760 300" preserveAspectRatio="none"><title id="chart-title">合成價格與移動平均線</title><desc id="chart-description">由瀏覽器產生的教學用合成資料，不是真實市場行情。</desc></svg></div>
+          <div class="chart-caption"><span id="signal-summary" aria-live="polite">計算示意訊號中…</span><span>資料為合成示意，非真實行情</span></div>
+        </div>
+        <div class="signal-note"><span aria-hidden="true">i</span><p>改變期間會改變訊號的敏感度：較短的均線通常更貼近價格，也可能更常交叉。這張圖沒有交易成本，也沒有用真實市場資料計算績效。</p></div>
+      </div>
+    </section>
+
+    <section class="content-section article-section" id="steps">
+      <div class="section-label"><span>04</span><span>PROCESS</span></div>
+      <div class="section-body"><h2>運作步驟</h2><ol class="numbered-list"><li><span>01</span><div><strong>取得按時間排序的價格資料</strong><p>每筆資料都要有明確時間，先確認缺漏、重複和調整方式。</p></div></li><li><span>02</span><div><strong>計算短期和長期平均線</strong><p>每個時間點只能用當時已經可取得的價格。</p></div></li><li><span>03</span><div><strong>依規則產生部位訊號</strong><p>明確定義訊號何時生效，以及下單使用哪個價格。</p></div></li><li><span>04</span><div><strong>加入成本，再計算績效</strong><p>把交易費用、滑價及其他必要假設寫清楚。</p></div></li></ol></div>
+    </section>
+
+    <section class="content-section article-section" id="limits">
+      <div class="section-label"><span>05</span><span>LIMITATIONS</span></div>
+      <div class="section-body"><h2>限制與常見錯誤</h2><div class="warning-card"><div class="warning-icon">!</div><div><strong>回看平均線時，不要讓訊號偷看到未來。</strong><p>若在第 t 天結束後才能算出訊號，模擬交易不能再假設自己以第 t 天已知的收盤價成交，除非策略明確能在收盤前取得並送出訊號。 <a class="text-citation" href="https://www.quantconnect.com/docs/v2/cloud-platform/research/deployment" target="_blank" rel="noreferrer">(QuantConnect: look-ahead bias examples ↗)</a></p></div></div><ul class="plain-list"><li>均線是落後指標，盤整期間可能反覆交叉。</li><li>忽略交易成本或成交時間，可能高估結果。</li><li>在同一段歷史資料反覆調參，容易把參數調到只適合過去。</li><li>示意圖是合成資料，不是策略績效證據。</li></ul><a class="inline-cta" href="backtesting-process.html#pitfalls">接著了解回測偏誤 <span aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="content-section article-section" id="sources">
+      <div class="section-label"><span>06</span><span>REFERENCES</span></div>
+      <div class="section-body"><h2>延伸閱讀／資料來源</h2><p>本頁的均線條件與圖表為入門教學整理；下列專案可用來探索 Python 回測工具和範例。</p><ul class="source-list"><li><a href="https://github.com/kernc/backtesting.py" target="_blank" rel="noreferrer">kernc/backtesting.py — Python 回測框架與使用範例 <span aria-hidden="true">↗</span></a></li></ul></div>
+    </section>
+
+    <nav class="article-pagination" aria-label="文章導覽"><a href="../index.html"><span>← 上一站</span><strong>回到首頁</strong></a><a href="backtesting-process.html"><span>下一篇 →</span><strong>回測流程</strong></a></nav>
+  </main>
+
+  <footer class="site-footer shell"><div><a class="brand footer-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">Q</span><span><strong>量化交易入門實驗室</strong><small>LEARN · TEST · QUESTION</small></span></a></div><p>教學用途 · 不構成投資建議<br>示意資料不代表真實市場績效。</p><a href="backtesting-process.html#sources" class="footer-source">查看資料來源 <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
+
