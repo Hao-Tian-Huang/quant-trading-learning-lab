@@ -39,7 +39,7 @@
 
 - `AGENTS.md`：本專案的 AI 協作規則；除非使用者要求，保留此檔名。
 - `README.md`：專案簡介、檔案結構、本機預覽方式與發佈資訊。
-- `references/`: source materials for AI research, such as lecture notes, PDFs, notes, datasets, and source-link lists; keep materials outside `dist/` unless they are meant for public download.
+- `references/`：供 AI 查閱的參考資料，例如課程講義、PDF、筆記、資料集與來源連結；除非要提供訪客公開下載，否則放在 `dist/` 以外。
 - `dist/index.html`：首頁與所有教學頁的主要導覽入口。
 - `dist/pages/<topic>.html`：每個教學主題一個獨立頁面，檔名使用小寫英文 kebab-case，例如 `moving-average-crossover.html`。
 - `dist/assets/styles.css`：所有頁面共用的樣式。
@@ -49,7 +49,7 @@
 
 ## 新增或修改頁面的工作流程
 
-1. Before drafting or updating lesson content, review relevant files in the root-level `references/` directory. Prefer applicable user-provided materials and cite the sources used on the page; also confirm the requirements, existing pages, and navigation.
+1. 新增或更新教學內容前，先閱讀根目錄 `references/` 中的相關檔案；優先採用適用的使用者提供資料，並在頁面標示實際使用的來源。接著確認需求、既有頁面與導覽。
 2. 使用「新增教學頁面的固定架構」撰寫內容；若關鍵資料或定義不足，先查證來源並在文章中標明。
 3. 在 `dist/pages/` 建立獨立頁面，沿用現有頁面的頁首、導覽、字體、色彩和頁尾。
 4. 在首頁新增該主題卡片，並更新各頁的共用導覽連結，確保使用相對路徑可從 GitHub Pages 子路徑正常載入。
