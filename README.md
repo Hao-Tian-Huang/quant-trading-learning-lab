@@ -41,4 +41,3 @@ dist/
 2. 將本專案的所有檔案（包括隱藏的 `.github` 資料夾）放在 Repository 根目錄，推送到 `main` 分支。
 3. 在 Repository 的 **Settings → Pages**，將 Build and deployment 的 Source 選為 **GitHub Actions**。
 4. 推送 `main` 後，`.github/workflows/pages.yml` 會自動把 `dist/` 發佈到 GitHub Pages。到 **Actions** 查看工作流程完成狀態，再由 **Settings → Pages** 複製公開網址。
-5. 提交作業時填入專案簡介、Repository 網址、Pages 網址，並簡述 `AGENTS.md` 如何規定 AI 新增頁面時的內容架構、來源、檔案位置與檢查步驟。
