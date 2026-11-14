@@ -28,6 +28,8 @@
 AGENTS.md
 README.md
 .github/workflows/pages.yml
+references/
+  README.md
 dist/
   index.html
   pages/
