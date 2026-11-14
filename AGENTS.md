@@ -1,10 +1,4 @@
-# AGENTS.md
 
-## 專案目的
-
-本專案是「量化交易入門實驗室」（Quant Trading Learning Lab），以繁體中文為主，協助有程式基礎的學生理解量化交易策略、回測流程與風險。網站是教學用途，不提供個人化投資建議。
-
-第一版以移動平均線交叉策略作為教學案例，參考量化交易教學網站的組織方式；所有文字、版面和程式碼都必須為本專案自行撰寫，不得複製其他專案的整頁內容或程式碼。
 
 ## 讀者與寫作方式
 
@@ -45,6 +39,7 @@
 
 - `AGENTS.md`：本專案的 AI 協作規則；除非使用者要求，保留此檔名。
 - `README.md`：專案簡介、檔案結構、本機預覽方式與發佈資訊。
+- `references/`: source materials for AI research, such as lecture notes, PDFs, notes, datasets, and source-link lists; keep materials outside `dist/` unless they are meant for public download.
 - `dist/index.html`：首頁與所有教學頁的主要導覽入口。
 - `dist/pages/<topic>.html`：每個教學主題一個獨立頁面，檔名使用小寫英文 kebab-case，例如 `moving-average-crossover.html`。
 - `dist/assets/styles.css`：所有頁面共用的樣式。
@@ -54,7 +49,7 @@
 
 ## 新增或修改頁面的工作流程
 
-1. 先閱讀本檔與 `README.md`，確認需求、現有頁面和導覽。
+1. Before drafting or updating lesson content, review relevant files in the root-level `references/` directory. Prefer applicable user-provided materials and cite the sources used on the page; also confirm the requirements, existing pages, and navigation.
 2. 使用「新增教學頁面的固定架構」撰寫內容；若關鍵資料或定義不足，先查證來源並在文章中標明。
 3. 在 `dist/pages/` 建立獨立頁面，沿用現有頁面的頁首、導覽、字體、色彩和頁尾。
 4. 在首頁新增該主題卡片，並更新各頁的共用導覽連結，確保使用相對路徑可從 GitHub Pages 子路徑正常載入。
