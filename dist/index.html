@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="以策略與回測為起點，學習量化交易的概念、流程和風險。">
+  <meta name="theme-color" content="#0b0f14">
+  <title>量化交易入門實驗室 | Quant Trading Learning Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="量化交易入門實驗室首頁">
+      <span class="brand-mark" aria-hidden="true">Q</span>
+      <span><strong>量化交易入門實驗室</strong><small>QUANT TRADING LEARNING LAB</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主要導覽">
+      <a class="active" href="index.html" aria-current="page">首頁</a>
+      <a href="pages/moving-average-crossover.html">策略示範</a>
+      <a href="pages/backtesting-process.html">回測流程</a>
+    </nav>
+    <a class="header-link" href="pages/backtesting-process.html#checklist">研究檢查表 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> SYSTEMATIC THINKING · BEGINNER TRACK</p>
+        <h1>把交易想法，<br><em>變成可以檢驗的規則。</em></h1>
+        <p class="hero-description">量化交易不只是寫程式買賣股票。先說清楚策略假設，再檢查歷史資料、交易成本和風險，才能知道回測結果到底代表什麼。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="pages/moving-average-crossover.html">開始看策略示範 <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="pages/backtesting-process.html">先了解回測流程</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="量化研究流程摘要">
+        <div class="panel-topline"><span>RESEARCH / 001</span><span class="panel-state">LEARNING MODE</span></div>
+        <div class="terminal-code"><span class="code-muted"># 一個可檢驗的策略假設</span><br><span class="code-purple">if</span> short_ma &gt; long_ma:<br>&nbsp;&nbsp;signal = <span class="code-green">"持有"</span><br><span class="code-purple">else</span>:<br>&nbsp;&nbsp;signal = <span class="code-red">"觀望"</span></div>
+        <div class="panel-rule"></div>
+        <div class="panel-footer"><span>HYPOTHESIS</span><strong>先定義，再測試。</strong></div>
+      </aside>
+    </section>
+
+    <section class="shell section-block">
+      <div class="section-heading">
+        <div><p class="eyebrow">LEARNING PATH / 01</p><h2>先建立研究流程</h2></div>
+        <p>每個指標都要放回研究問題裡解讀。單一數字無法替策略下結論。</p>
+      </div>
+      <div class="path-grid">
+        <article class="path-card path-card-featured">
+          <div class="card-index">01 <span>STRATEGY</span></div>
+          <h3>把想法寫成規則</h3>
+          <p>用均線交叉做例子，說明如何把「趨勢變強」轉成可執行的進出場條件。</p>
+          <a href="pages/moving-average-crossover.html" class="card-link">打開策略示範 <span aria-hidden="true">→</span></a>
+          <div class="mini-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </article>
+        <article class="path-card">
+          <div class="card-index">02 <span>BACKTEST</span></div>
+          <h3>用歷史資料檢查</h3>
+          <p>了解資料、訊號、交易模擬、成本與績效分析如何接成一條完整流程。</p>
+          <a href="pages/backtesting-process.html" class="card-link">走一遍回測流程 <span aria-hidden="true">→</span></a>
+          <div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="path-card path-card-note">
+          <div class="card-index">03 <span>RISK CHECK</span></div>
+          <h3>先問結果有沒有偏誤</h3>
+          <p>留意前視偏誤、過度配適，以及忽略成本可能造成的錯誤結論。</p>
+          <a href="pages/backtesting-process.html#pitfalls" class="card-link">查看常見偏誤 <span aria-hidden="true">→</span></a>
+          <div class="note-mark" aria-hidden="true">!</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell principle-band">
+      <div class="principle-label"><span class="pulse-line"></span> THE CORE IDEA</div>
+      <p>回測檢驗的是<span>一組歷史假設</span>，不是對未來的保證。</p>
+      <a href="pages/backtesting-process.html#limits" aria-label="閱讀回測的限制">閱讀限制說明 <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="shell section-block next-step">
+      <div class="section-heading">
+        <div><p class="eyebrow">HOW TO USE THIS LAB</p><h2>從一個小策略開始</h2></div>
+        <p>先看策略規則，再用回測流程檢查資料和假設。每一步都能回頭追問：這個結果是怎麼來的？</p>
+      </div>
+      <div class="workflow-strip">
+        <div><b>01</b><span>定義假設</span></div><span class="workflow-arrow" aria-hidden="true">→</span>
+        <div><b>02</b><span>整理資料</span></div><span class="workflow-arrow" aria-hidden="true">→</span>
+        <div><b>03</b><span>模擬交易</span></div><span class="workflow-arrow" aria-hidden="true">→</span>
+        <div><b>04</b><span>檢查限制</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span><span><strong>量化交易入門實驗室</strong><small>LEARN · TEST · QUESTION</small></span></a></div>
+    <p>教學用途 · 不構成投資建議<br>示意資料不代表真實市場績效。</p>
+    <a href="pages/backtesting-process.html#sources" class="footer-source">查看資料來源 <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>
+
